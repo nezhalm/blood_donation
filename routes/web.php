@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\adminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,23 +17,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Route::get('/home', function () {
     return view('home');
 });
-
 Route::get('/navbar', function () {
     return view('navbar');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/centres', function () {
+    return view('admin.centres');
+});
+
+Route::get('dashboard', function () {
+    return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('users', [adminController::class, 'users'])->name('users.users');
+    Route::get('centres', [adminController::class, 'centres'])->name('centres.centres');
+    Route::get('add_centre', [adminController::class, 'formec'])->name('add_centre.formec');
+
 });
+
 
 require __DIR__.'/auth.php';

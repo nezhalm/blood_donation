@@ -11,11 +11,8 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
         <!-- Styles -->
-      
-
+  
     </head>
-
-
 <body>
     <div class="container my-24 px-6 mx-auto">
         <!-- Section: Design Block -->

@@ -438,8 +438,8 @@
                 </li>
             </ul>
         </div>
-
         <div id="content" class="px-8 bg-transparent flex-grow flex-shrink flex-auto overflow-y-scroll">
+
             <div id="info" class="border-b border-grey-light h-18">
                 <div class="flex justify-between flex-grow items-center border-b h-18">
                     <div class="flex">
@@ -450,6 +450,7 @@
                             <li class="py-4 px-4">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                             </li>
+
 
                         </ul>
                     </div>
@@ -469,8 +470,100 @@
                             </li>
                         </ul>
                     </div>
+
+                </div>
+                <div class="py-20" style="background: linear-gradient(90deg, #3e0303 0%, #c90505 100%)"
+                >
+                  <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold mb-2 text-white">
+                      Smart Health Monitoring Wristwatch!
+                    </h2>
+                    <h3 class="text-2xl mb-8 text-gray-200">
+                      Monitor your health vitals smartly anywhere you go.
+                    </h3>
+
+                    <button class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider">
+donate now                    </button>
+                  </div>
+                </div>
+                {{--  --}}
+                <section class="container mx-auto px-6 p-10">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
+                      Features
+                    </h2>
+                    <div class="flex items-center flex-wrap mb-20">
+                      <div class="w-full md:w-1/2">
+                        <h4 class="text-3xl text-gray-800 font-bold mb-3">donate now</h4>
+                        <p class="text-gray-600 mb-8">Our Smart Health Monitoring Wristwatch is able to capture you vitals while you exercise. You can create different category of exercises and can track your vitals on the go.</p>
+                      </div>
+                      <div class="w-full md:w-1/2">
+                        <img src="{{ asset('images/2.jpeg') }}" alt="Monitoring" />
+                      </div>
+                    </div>
+
+                    <div class="flex items-center flex-wrap mb-20">
+                      <div class="w-full md:w-1/2">
+                        <img src="assets/report.svg" alt="Reporting" />
+                      </div>
+                      <div class="w-full md:w-1/2 pl-10">
+                        <h4 class="text-3xl text-gray-800 font-bold mb-3">Reporting</h4>
+                        <p class="text-gray-600 mb-8">Our Smart Health Monitoring Wristwatch can generate a comprehensive report on your vitals depending on your settings either daily, weekly, monthly, quarterly or yearly.</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center flex-wrap mb-20">
+                      <div class="w-full md:w-1/2">
+                        <h4 class="text-3xl text-gray-800 font-bold mb-3">Syncing</h4>
+                        <p class="text-gray-600 mb-8">Our Smart Health Monitoring Wristwatch allows you to sync data across all your mobile devices whether iOS, Android or Windows OS and also to your laptop whether MacOS, GNU/Linux or Windows OS.</p>
+                      </div>
+                      <div class="w-full md:w-1/2">
+                        <img src="assets/sync.svg" alt="Syncing" />
+                      </div>
+                    </div>
+                  </section>
+
+                  {{--  --}}
+
+                  <div class="container">
+                    <div class="swiper-slide__inner">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <p>Give Blood</p>
+                                <h2>Everyone could be <br> A Hero</h2>
+                                                                    <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=90494853053-jath4qkrj3g2limuutsb4r2h38qfv6lf.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.onlineblood.in%2Flogin&state&scope=email%20profile&approval_prompt=auto" class="thm-btn">Join as Donor</a>
+                                <br><br>
+                                <p>Blood | Plasma | Platelets</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="swiper-slide">
+                <div class="image-layer"
+                    style="background-image: url(https://www.onlineblood.in/assets/default/images/main-slider/slider-2-1.jpg);"></div>
+                <div class="container">
+                    <div class="swiper-slide__inner">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <p>Helping Them Today</p>
+                                <h2>We Can Make <br> A Difference</h2>
+                                                                    <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=90494853053-jath4qkrj3g2limuutsb4r2h38qfv6lf.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.onlineblood.in%2Flogin&state&scope=email%20profile&approval_prompt=auto" class="thm-btn">Join as Donor</a>
+                                <br><br>
+                                <p>Blood | Plasma | Platelets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination" id="main-slider-pagination"></div>
+    </div>
+            </div>
+
+{{--  --}}
+
+
+
         </div>
 
 
