@@ -72,40 +72,63 @@
           <!-- Content -->
           <div class="flex-1 px-2 sm:px-0">
             <div class="flex justify-between items-center">
-              <h3 class="text-3xl font-extralight text-white/50">livres</h3>
+              <h3 class="text-3xl font-extralight text-white/50"></h3>
               <div class="inline-flex items-center space-x-2">
 
               </div>
             </div>
             <div class="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               <div class="group bg-gray-900/30 py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/40 hover:smooth-hover">
-                <a class="bg-gray-900/70 text-white/50 group-hover:text-white group-hover:smooth-hover flex w-20 h-20 rounded-full items-center justify-center" href="/add_livre">
+                <a class="bg-gray-900/70 text-white/50 group-hover:text-white group-hover:smooth-hover flex w-20 h-20 rounded-full items-center justify-center" href="/add_centre">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                   </svg>
                 </a>
-                <a class="text-white/50 group-hover:text-white group-hover:smooth-hover text-center" href="/add_centre">Create livre</a>
+                <a class="text-white/50 group-hover:text-white group-hover:smooth-hover text-center" href="/add_centre">Create centre</a>
               </div>
 
 
+              {{-- @foreach ( $centres as $centre )
+
+
+                <h4 class="text-white text-xl  font-bold capitalize text-center">  {{ $centre->ville }}</h4>
+
+                <p class=" text-slate-900 pl-2 pt-1 w-20 h-20  rounded-full object-center bg-blue-200"  >
+                    <img src={{  asset('images/centres/'.$centre->image)}} class="object-cover buttom-2 mb-32 h-24 w-32 rounded-full" alt="" />
+
+                </p>
+
+                <h4 class="text-white text-l font-bold capitalize text-center">jhghj</h4>
+
+                <h2 class="relative group bg-gray-900 py-5 w-32 h-36 sm:py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover"  >
+                    <img src={{  asset('images/centres/'.$centre->image)}} class="object-cover buttom-2 mb-32 h-24 w-32 rounded-full" alt="" />
+
+                </h2>
+                   <div class="flex flex-auto mt-12">
+
+</div>
+                <p class="absolute top-2 text-white/20 inline-flex items-center text-xs"> {{ $centre->created_at }} <span class="ml-2 w-2 h-2 block bg-green-500 rounded-full group-hover:animate-pulse"></span></p>
+
+              </div>
+
+              @endforeach --}}
               @foreach ( $centres as $centre )
               <?php
               $var=strtoupper(substr($centre->nom, 0, 1));
               ?>
               <div class="relative group bg-gray-900 py-5 sm:py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
-                {{-- <h2 class="relative group bg-gray-900 py-5 w-32 h-36 sm:py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover"  >
-                    <img src={{asset('images/centres/'.$centres->image)}} class="object-cover buttom-2 mb-32 h-24 w-32 rounded-full" alt="" />
+                <h2 class="relative group bg-gray-900 py-5 w-32 h-36 sm:py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover"  >
+                    <img src={{  asset('images/'.$centre->image)}} class="object-cover buttom-2 mb-32 h-24 w-32 rounded-full" alt="" />
 
-                </h2> --}}
+                </h2>
+                <h4 class="text-white text-xl  font-bold capitalize text-center">  {{ $centre->nom }}</h4>
                 <h4 class="text-white text-xl  font-bold capitalize text-center">  {{ $centre->ville }}</h4>
 
-                {{-- <p class=" text-slate-900 pl-2 pt-1 w-20 h-20  rounded-full object-center bg-blue-200"  > {{ $var }}</p> --}}
 
                 <h4 class="text-white text-l font-bold capitalize text-center"></h4>
 
-                {{-- <p class="text-white/50">  {{ $livre->image }},</p> --}}
-              <div class="flex flex-auto mt-12">
-                {{-- <form action="{{ route('livre.archive', ['id' => $livre->id]) }}" method="POST">
+              <div class="flex flex-auto ml-20	 mt-12">
+             <form action="{{ route('centre.archive', ['id' => $centre->id]) }}" method="POST">
                     @csrf
                     @method('POST')
                     <button type="submit">
@@ -117,10 +140,19 @@
                 </form>
 
 
-                <form action="{{ route('livreedit', ['id' => $livre->id]) }}" method="GET">
+                <form action="{{ route('delete_centre.delete', ['id' => $centre->id]) }}" method="POST">
                     @csrf
-                    @method('UPDATE')
-                    <button type="submit"> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="yellow">
+                    @method('DELETE')
+                    <button type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" class=" mr-20  h-5 w-5 " viewBox="0 0 20 20" fill="green">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </form>
+                {{-- <form action="{{ route('upda') }}" method = "POST">
+                    @csrf
+                    @method('')
+                    <button type="submit">  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="yellow">
                         <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path>
                     </svg></button>
                 </form> --}}

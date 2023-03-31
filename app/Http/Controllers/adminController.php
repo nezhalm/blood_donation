@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\user;
 use App\Models\center;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -29,10 +31,54 @@ class adminController extends Controller
     }
     public function formec()
     {
-
-
         return view('admin.add-centre');
     }
+    public function add(Request $request)
+    {
+
+        $center = new center();
+        $center->nom = $request->input('nom');
+        $center->ville = $request->input('ville');
+        $center->image = $request->input('image');
+
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('images/', $filename);
+            $center->image = $filename;
+        } else {
+            return $request;
+            $center->image = '';
+        }
+
+        $center->save();
+        return redirect()->route('centres.centres');
+
+    }
+    public function archive(string $id)
+    {
+
+        $livre_archived = center::find($id);
+        DB::table('centers')
+            ->where('id', $livre_archived->id)
+            ->update(['archived' => 1]);
+        return redirect()->route('centres.centres');
+
+    }
+    public function delete(string $id)
+
+
+        {
+            $cat = center::find($id);
+            $cat->delete();
+            return redirect()->route('centres.centres');
+        }
+
+        public function index()
+        {
+            return view('admin.rendez-vous');
+        }
     /**
      * Show the form for creating a new resource.
      */
